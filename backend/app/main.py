@@ -1,8 +1,15 @@
+import sys
+print("Starting main.py import...", file=sys.stderr, flush=True)
 from fastapi import FastAPI
+print("FastAPI imported.", file=sys.stderr, flush=True)
 from fastapi.middleware.cors import CORSMiddleware
+print("CORS imported.", file=sys.stderr, flush=True)
 from app.core.config import settings
+print("Config loaded.", file=sys.stderr, flush=True)
 from app.db.session import engine, Base
+print("DB session loaded.", file=sys.stderr, flush=True)
 from app.api import auth_router, business_router, chat_router, products_router, orders_router, documents_router, leads_router, analytics_router
+print("All routers loaded.", file=sys.stderr, flush=True)
 
 app = FastAPI(
     title="AI Sales Agent API",
