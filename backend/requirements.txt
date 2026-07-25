@@ -15,12 +15,7 @@ python-jose[cryptography]==3.3.0
 bcrypt>=4.0.0
 python-multipart==0.0.6
 
-# AI & ML (Free APIs)
-google-generativeai==0.3.2
-langchain==0.1.0
-langchain-google-genai==0.0.6
-langgraph==0.0.20
-sentence-transformers==2.2.2
+# AI (via httpx/OpenAI-compatible APIs)
 
 # Vector Database
 qdrant-client==1.7.0

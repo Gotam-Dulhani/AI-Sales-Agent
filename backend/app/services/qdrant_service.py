@@ -7,7 +7,13 @@ from app.core.config import settings
 
 class QdrantService:
     def __init__(self):
-        self.client = QdrantClient(url=settings.QDRANT_URL, api_key=settings.QDRANT_API_KEY)
+        self._client = None
+
+    @property
+    def client(self):
+        if self._client is None:
+            self._client = QdrantClient(url=settings.QDRANT_URL, api_key=settings.QDRANT_API_KEY)
+        return self._client
 
     async def create_collection(
         self,
