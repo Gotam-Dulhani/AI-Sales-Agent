@@ -11,8 +11,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-RUN mkdir -p uploads && chmod +x start.sh
+RUN mkdir -p uploads
 
 EXPOSE 8000
 
-CMD ["./start.sh"]
+SHELL ["/bin/bash", "-c"]
+CMD python init_db.py && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
